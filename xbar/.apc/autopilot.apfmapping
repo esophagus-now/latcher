@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="xbar.cpp" path="/workspace/xbar/xbar.cpp"/>
+    <originFiles name="xbar.h" path="/workspace/xbar/xbar.h"/>
+    <originFiles name="pragmas.h" path="/workspace/xbar/pragmas.h"/>
+  </source>
+  <testbench>
+    <originFiles name="xbar_test.cpp" path="/workspace/xbar/solution1/xbar_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
