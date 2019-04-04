@@ -12,7 +12,7 @@ using namespace hls;
 //These macros only make sense for an integer frequency
 #define FS 48000
 #define WIDTH 24
-#define STEP ((sample)(((1UL<<WIDTH)*FREQ)/FS))
+#define STEP ((int)(((1UL<<WIDTH)*FREQ)/FS))
 #define ERRSTEP ((int)(((1UL<<WIDTH)*FREQ)%FS)<<1)
 #define ERRTHRESH FS
 #define ERRCORR (FS<<1)
@@ -20,9 +20,14 @@ using namespace hls;
 
 //Does something similar to Bresenham to get a really accurate frequency
 void triangle(
-	stream<sample> &out
+	stream<padded_sample> &out
 ) {
-	static sample val = 0;
+	static ap_int<24> val = 0;
+
+	padded_sample tmp = {0, val};
+
+	out << tmp;
+
 	static int err = -FS;
 	val += STEP;
 	err += ERRSTEP;
@@ -30,6 +35,4 @@ void triangle(
 		err -= ERRCORR;
 		val++;
 	}
-
-	out << val;
 }

@@ -4,11 +4,11 @@
 using namespace std;
 
 int main() {
-	hls::stream<sample> mystream("sample stream");
+	hls::stream<padded_sample> mystream("sample stream");
 	for (int i = 0; i < 100; i++) {
 		triangle(mystream);
-		sample tmp;
+		padded_sample tmp;
 		mystream >> tmp;
-		cout << tmp << "\t";
+		cout << tmp.data << "\t";
 	}
 }
