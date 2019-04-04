@@ -5,7 +5,7 @@
 #include <hls_stream.h>
 
 
-typedef ap_uint<8> dt;
+typedef ap_int<24> dt;
 
 void latcher(
 	hls::stream<dt> &in,

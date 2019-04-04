@@ -4,7 +4,7 @@
 #include <hls_stream.h>
 #include <ap_int.h>
 
-typedef ap_uint<8> dt;
+typedef ap_int<24> dt;
 
 
 #define mkstream(x,y) hls::stream<dt> &x##y
