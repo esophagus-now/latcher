@@ -12,8 +12,8 @@
   <warningLogs>
     <logs>
       <synLog>
-        <logs message="WARNING: [RTGEN 206-101] Register 'err' is power-on initialization." projectName="triangle" solutionName="solution1" date="2019-04-04T22:26:52.990+0000" type="Warning"/>
-        <logs message="WARNING: [RTGEN 206-101] Register 'val_V' is power-on initialization." projectName="triangle" solutionName="solution1" date="2019-04-04T22:26:52.985+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'err' is power-on initialization." projectName="triangle" solutionName="solution1" date="2019-04-05T17:32:16.163+0000" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Register 'val_V' is power-on initialization." projectName="triangle" solutionName="solution1" date="2019-04-05T17:32:16.135+0000" type="Warning"/>
       </synLog>
       <simLog/>
       <mgLog/>

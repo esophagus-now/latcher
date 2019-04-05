@@ -13,7 +13,7 @@
 <SummaryOfTimingAnalysis>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
-<EstimatedClockPeriod>5.51</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.23</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <Best-caseLatency>1</Best-caseLatency>
@@ -25,7 +25,7 @@
 </PerformanceEstimates>
 <AreaEstimates>
 <Resources>
-<FF>405</FF>
+<FF>406</FF>
 <LUT>223</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>

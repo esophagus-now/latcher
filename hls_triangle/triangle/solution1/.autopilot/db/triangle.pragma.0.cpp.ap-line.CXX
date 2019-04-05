@@ -618,6 +618,3 @@
 #pragma line 6 "./triangle.h" 2 ::: 40315
 #pragma line 2 "triangle.cpp" 2 ::: 40325
 #pragma line 21 "triangle.cpp" ::: 40337
-#pragma line 24 "triangle.cpp" ::: 40343
-#pragma line 24 "triangle.cpp" ::: 40346
-#pragma line 24 "triangle.cpp" ::: 40349

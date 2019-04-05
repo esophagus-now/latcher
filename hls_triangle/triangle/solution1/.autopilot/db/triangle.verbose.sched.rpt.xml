@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'triangle'" level="0">
-<item name = "Date">Thu Apr  4 22:26:52 2019
+<item name = "Date">Fri Apr  5 17:32:16 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">triangle</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">virtex7</item>
-<item name = "Target device">xc7vx485tffg1157-1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z100ffg900-1</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 5.51, 1.25</column>
+<column name="ap_clk">10.00, 8.23, 1.25</column>
 </table>
 </item>
 </section>

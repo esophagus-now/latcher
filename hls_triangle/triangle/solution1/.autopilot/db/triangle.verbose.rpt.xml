@@ -1,13 +1,13 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'triangle'" level="0">
-<item name = "Date">Thu Apr  4 22:26:53 2019
+<item name = "Date">Fri Apr  5 17:32:16 2019
 </item>
 <item name = "Version">2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)</item>
 <item name = "Project">triangle</item>
 <item name = "Solution">solution1</item>
-<item name = "Product family">virtex7</item>
-<item name = "Target device">xc7vx485tffg1157-1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z100ffg900-1</item>
 </section>
 
 <section name = "Performance Estimates" level="0">
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">10.00, 5.51, 1.25</column>
+<column name="ap_clk">10.00, 8.23, 1.25</column>
 </table>
 </item>
 </section>
@@ -52,8 +52,8 @@
 <column name="Instance">-, -, -, -</column>
 <column name="Memory">-, -, -, -</column>
 <column name="Multiplexer">-, -, -, 48</column>
-<column name="Register">-, -, 126, -</column>
-<specialColumn name="Available">2060, 2800, 607200, 303600</specialColumn>
+<column name="Register">-, -, 127, -</column>
+<specialColumn name="Available">1510, 2020, 554800, 277400</specialColumn>
 <specialColumn name="Utilization (%)">0, 0, ~0, ~0</specialColumn>
 </table>
 </item>
@@ -79,13 +79,13 @@
 <keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="tmp_6_fu_66_p2">+, 0, 101, 37, 32, 15</column>
 <column name="tmp_8_fu_78_p2">+, 0, 101, 37, 32, 17</column>
-<column name="val_V_new_fu_92_p2">+, 0, 77, 29, 24, 24</column>
+<column name="val_V_new_fu_105_p2">+, 0, 77, 29, 24, 24</column>
 <column name="out_V_1_load_A">and, 0, 0, 2, 1, 1</column>
 <column name="out_V_1_load_B">and, 0, 0, 2, 1, 1</column>
 <column name="out_V_1_state_cmp_full">icmp, 0, 0, 1, 2, 1</column>
 <column name="tmp_7_fu_72_p2">icmp, 0, 0, 16, 32, 16</column>
-<column name="err_new_fu_98_p3">select, 0, 0, 32, 1, 32</column>
-<column name="val_V_new_v_cast_cas_fu_84_p3">select, 0, 0, 19, 1, 19</column>
+<column name="err_new_fu_84_p3">select, 0, 0, 32, 1, 32</column>
+<column name="val_V_new_v_cast_cas_fu_98_p3">select, 0, 0, 19, 1, 19</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -105,6 +105,7 @@
 <column name="out_V_1_sel_rd">1, 0, 1, 0</column>
 <column name="out_V_1_sel_wr">1, 0, 1, 0</column>
 <column name="out_V_1_state">2, 0, 2, 0</column>
+<column name="tmp_7_reg_126">1, 0, 1, 0</column>
 <column name="val_V">24, 0, 24, 0</column>
 </table>
 </item>

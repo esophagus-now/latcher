@@ -6,8 +6,8 @@
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>virtex7</ProductFamily>
-<Part>xc7vx485tffg1157-1</Part>
+<ProductFamily>zynq</ProductFamily>
+<Part>xc7z100ffg900-1</Part>
 <TopModelName>triangle</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>1.25</ClockUncertainty>
@@ -17,7 +17,7 @@
 <PipelineType>none</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>5.51</EstimatedClockPeriod>
+<EstimatedClockPeriod>8.23</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -31,16 +31,16 @@
 
 <AreaEstimates>
 <Resources>
-<FF>405</FF>
+<FF>406</FF>
 <LUT>223</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP48E>0</DSP48E>
 </Resources>
 <AvailableResources>
-<BRAM_18K>2060</BRAM_18K>
-<DSP48E>2800</DSP48E>
-<FF>607200</FF>
-<LUT>303600</LUT>
+<BRAM_18K>1510</BRAM_18K>
+<DSP48E>2020</DSP48E>
+<FF>554800</FF>
+<LUT>277400</LUT>
 </AvailableResources>
 </AreaEstimates>
 

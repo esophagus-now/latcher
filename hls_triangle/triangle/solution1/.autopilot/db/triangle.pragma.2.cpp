@@ -40387,15 +40387,9 @@ using namespace hls;
 void triangle(
  stream<padded_sample> &out
 ) {
-_ssdm_DataPack( &out, 0, 0, "", "", "");
-# 24 "triangle.cpp"
-
-_ssdm_op_SpecInterface(0, "ap_ctrl_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-# 24 "triangle.cpp"
-
 _ssdm_op_SpecInterface(&out, "axis", 1, 1, "both", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
-# 24 "triangle.cpp"
-
+_ssdm_DataPack( &out, 0, 0, "", "", "");
+_ssdm_op_SpecInterface(0, "ap_ctrl_none", 0, 0, "", 0, 0, "", "", "", 0, 0, 0, 0, "", "");
  static ap_int<24> val = 0;
 
  padded_sample tmp = {0, val};

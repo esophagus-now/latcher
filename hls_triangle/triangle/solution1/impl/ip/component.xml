@@ -301,7 +301,7 @@ se}}}} field_data {name {attribs {resolve_type immediate dependency {} format st
       <spirit:file>
         <spirit:name>hdl/vhdl/triangle.vhd</spirit:name>
         <spirit:fileType>vhdlSource</spirit:fileType>
-        <spirit:userFileType>CHECKSUM_208e17d8</spirit:userFileType>
+        <spirit:userFileType>CHECKSUM_336b4ab3</spirit:userFileType>
       </spirit:file>
     </spirit:fileSet>
     <spirit:fileSet>
@@ -381,15 +381,15 @@ se}}}} field_data {name {attribs {resolve_type immediate dependency {} format st
   <spirit:vendorExtensions>
     <xilinx:coreExtensions>
       <xilinx:supportedFamilies>
-        <xilinx:family xilinx:lifeCycle="Pre-Production">virtex7</xilinx:family>
+        <xilinx:family xilinx:lifeCycle="Pre-Production">zynq</xilinx:family>
       </xilinx:supportedFamilies>
       <xilinx:taxonomies>
         <xilinx:taxonomy>/VIVADO_HLS_IP</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>Triangle</xilinx:displayName>
       <xilinx:definitionSource>HLS</xilinx:definitionSource>
-      <xilinx:coreRevision>1904042227</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-04-04T22:27:13Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>1904051732</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-04-05T17:33:10Z</xilinx:coreCreationDateTime>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.2</xilinx:xilinxVersion>

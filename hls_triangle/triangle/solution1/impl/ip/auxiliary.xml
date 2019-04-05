@@ -3,5 +3,5 @@
   <xd:arg xd:name="out.padding" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="7:0" xd:dataWidth="8"/>
   <xd:arg xd:name="out.data" xd:originalName="out" xd:direction="out" xd:interfaceRef="out_V" xd:busTypeRef="axis" xd:dataPack="true" xd:bitMapping="31:24" xd:dataWidth="8"/>
   <xd:latencyEstimates xd:best-case="1" xd:worst-case="1" xd:average-case="1"/>
-  <xd:resourceEstimates xd:LUT="223" xd:FF="405" xd:BRAM="0" xd:DSP="0"/>
+  <xd:resourceEstimates xd:LUT="223" xd:FF="406" xd:BRAM="0" xd:DSP="0"/>
 </xd:acceleratorMap>

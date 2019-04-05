@@ -17,6 +17,8 @@ __SIM_FIR__ = 1
 
 __SIM_DDS__ = 1
 
+__USE_CLANG__ = 1
+
 ObjDir = obj
 
 HLS_SOURCES = ../../../../triangle_test.cpp ../../../../triangle.cpp
@@ -59,6 +61,12 @@ IFLAG += -D__SIM_DDS__
 IFLAG += -g
 DFLAG += -D__xilinx_ip_top= -DAESL_TB
 CCFLAG += 
+CCFLAG += --gcc-toolchain=${AUTOPILOT_TOOL}/clang-3.9
+LFLAG += --gcc-toolchain=${AUTOPILOT_TOOL}/clang-3.9
+CCFLAG += -Wno-c++11-narrowing
+CCFLAG += -Werror=uninitialized
+CCFLAG += -std=c++11
+LFLAG += -std=c++11
 
 
 
@@ -70,12 +78,12 @@ all: $(TARGET)
 
 $(ObjDir)/triangle_test.o: ../../../../triangle_test.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../triangle_test.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(CXX) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/triangle_test.d
 
 $(ObjDir)/triangle.o: ../../../../triangle.cpp $(ObjDir)/.dir
 	$(Echo) "   Compiling ../../../../triangle.cpp in $(BuildMode) mode" $(AVE_DIR_DLOG)
-	$(Verb)  $(CC) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
+	$(Verb)  $(CXX) ${CCFLAG} -c -MMD  $(IFLAG) $(DFLAG) $< -o $@ ; \
 
 -include $(ObjDir)/triangle.d

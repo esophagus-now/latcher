@@ -22,7 +22,7 @@ end;
 architecture behav of triangle is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "triangle,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7vx485tffg1157-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.506000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=405,HLS_SYN_LUT=223}";
+    "triangle,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.232000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=406,HLS_SYN_LUT=223}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (1 downto 0) := "01";
@@ -69,12 +69,13 @@ architecture behav of triangle is
     signal ap_CS_fsm_state2 : STD_LOGIC;
     attribute fsm_encoding of ap_CS_fsm_state2 : signal is "none";
     signal tmp_fu_53_p3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal val_V_new_fu_92_p2 : STD_LOGIC_VECTOR (23 downto 0);
-    signal err_new_fu_98_p3 : STD_LOGIC_VECTOR (31 downto 0);
-    signal tmp_6_fu_66_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal tmp_7_fu_72_p2 : STD_LOGIC_VECTOR (0 downto 0);
-    signal val_V_new_v_cast_cas_fu_84_p3 : STD_LOGIC_VECTOR (23 downto 0);
+    signal tmp_7_reg_126 : STD_LOGIC_VECTOR (0 downto 0);
+    signal val_V_new_fu_105_p2 : STD_LOGIC_VECTOR (23 downto 0);
+    signal err_new_fu_84_p3 : STD_LOGIC_VECTOR (31 downto 0);
+    signal tmp_6_fu_66_p2 : STD_LOGIC_VECTOR (31 downto 0);
     signal tmp_8_fu_78_p2 : STD_LOGIC_VECTOR (31 downto 0);
+    signal val_V_new_v_cast_cas_fu_98_p3 : STD_LOGIC_VECTOR (23 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (1 downto 0);
 
 
@@ -146,8 +147,8 @@ begin
     begin
         if (ap_clk'event and ap_clk = '1') then
             if (((ap_const_logic_1 = ap_CS_fsm_state1) and (out_V_1_ack_in = ap_const_logic_1))) then
-                err <= err_new_fu_98_p3;
-                val_V <= val_V_new_fu_92_p2;
+                err <= err_new_fu_84_p3;
+                tmp_7_reg_126 <= tmp_7_fu_72_p2;
             end if;
         end if;
     end process;
@@ -164,6 +165,14 @@ begin
         if (ap_clk'event and ap_clk = '1') then
             if ((ap_const_logic_1 = out_V_1_load_B)) then
                 out_V_1_payload_B <= tmp_fu_53_p3;
+            end if;
+        end if;
+    end process;
+    process (ap_clk)
+    begin
+        if (ap_clk'event and ap_clk = '1') then
+            if (((ap_const_logic_1 = ap_CS_fsm_state2) and (out_V_1_ack_in = ap_const_logic_1))) then
+                val_V <= val_V_new_fu_105_p2;
             end if;
         end if;
     end process;
@@ -195,7 +204,7 @@ begin
                 ap_rst_n_inv <= not(ap_rst_n);
     end process;
 
-    err_new_fu_98_p3 <= 
+    err_new_fu_84_p3 <= 
         tmp_8_fu_78_p2 when (tmp_7_fu_72_p2(0) = '1') else 
         tmp_6_fu_66_p2;
     out_V_1_ack_in <= out_V_1_state(1);
@@ -241,8 +250,8 @@ begin
     tmp_7_fu_72_p2 <= "1" when (signed(tmp_6_fu_66_p2) > signed(ap_const_lv32_BB80)) else "0";
     tmp_8_fu_78_p2 <= std_logic_vector(unsigned(err) + unsigned(ap_const_lv32_FFFF0600));
     tmp_fu_53_p3 <= (val_V & ap_const_lv8_0);
-    val_V_new_fu_92_p2 <= std_logic_vector(unsigned(val_V) + unsigned(val_V_new_v_cast_cas_fu_84_p3));
-    val_V_new_v_cast_cas_fu_84_p3 <= 
-        ap_const_lv24_55556 when (tmp_7_fu_72_p2(0) = '1') else 
+    val_V_new_fu_105_p2 <= std_logic_vector(unsigned(val_V) + unsigned(val_V_new_v_cast_cas_fu_98_p3));
+    val_V_new_v_cast_cas_fu_98_p3 <= 
+        ap_const_lv24_55556 when (tmp_7_reg_126(0) = '1') else 
         ap_const_lv24_55555;
 end behav;

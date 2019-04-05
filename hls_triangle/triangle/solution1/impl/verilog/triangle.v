@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="triangle,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7vx485tffg1157-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=5.506000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=405,HLS_SYN_LUT=223}" *)
+(* CORE_GENERATION_INFO="triangle,hls_ip_2017_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xc7z100ffg900-1,HLS_INPUT_CLOCK=10.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=8.232000,HLS_SYN_LAT=1,HLS_SYN_TPT=none,HLS_SYN_MEM=0,HLS_SYN_DSP=0,HLS_SYN_FF=406,HLS_SYN_LUT=223}" *)
 
 module triangle (
         ap_clk,
@@ -48,12 +48,13 @@ reg    out_V_TDATA_blk_n;
 wire    ap_CS_fsm_state1;
 wire    ap_CS_fsm_state2;
 wire   [31:0] tmp_fu_53_p3;
-wire   [23:0] val_V_new_fu_92_p2;
-wire   [31:0] err_new_fu_98_p3;
-wire   [31:0] tmp_6_fu_66_p2;
 wire   [0:0] tmp_7_fu_72_p2;
-wire   [23:0] val_V_new_v_cast_cas_fu_84_p3;
+reg   [0:0] tmp_7_reg_126;
+wire   [23:0] val_V_new_fu_105_p2;
+wire   [31:0] err_new_fu_84_p3;
+wire   [31:0] tmp_6_fu_66_p2;
 wire   [31:0] tmp_8_fu_78_p2;
+wire   [23:0] val_V_new_v_cast_cas_fu_98_p3;
 reg   [1:0] ap_NS_fsm;
 
 // power-on initialization
@@ -112,8 +113,8 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b1 == ap_CS_fsm_state1) & (out_V_1_ack_in == 1'b1))) begin
-        err <= err_new_fu_98_p3;
-        val_V <= val_V_new_fu_92_p2;
+        err <= err_new_fu_84_p3;
+        tmp_7_reg_126 <= tmp_7_fu_72_p2;
     end
 end
 
@@ -126,6 +127,12 @@ end
 always @ (posedge ap_clk) begin
     if ((1'b1 == out_V_1_load_B)) begin
         out_V_1_payload_B <= tmp_fu_53_p3;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (out_V_1_ack_in == 1'b1))) begin
+        val_V <= val_V_new_fu_105_p2;
     end
 end
 
@@ -183,7 +190,7 @@ always @ (*) begin
     ap_rst_n_inv = ~ap_rst_n;
 end
 
-assign err_new_fu_98_p3 = ((tmp_7_fu_72_p2[0:0] === 1'b1) ? tmp_8_fu_78_p2 : tmp_6_fu_66_p2);
+assign err_new_fu_84_p3 = ((tmp_7_fu_72_p2[0:0] === 1'b1) ? tmp_8_fu_78_p2 : tmp_6_fu_66_p2);
 
 assign out_V_1_ack_in = out_V_1_state[1'd1];
 
@@ -211,8 +218,8 @@ assign tmp_8_fu_78_p2 = ($signed(err) + $signed(32'd4294903296));
 
 assign tmp_fu_53_p3 = {{val_V}, {8'd0}};
 
-assign val_V_new_fu_92_p2 = (val_V + val_V_new_v_cast_cas_fu_84_p3);
+assign val_V_new_fu_105_p2 = (val_V + val_V_new_v_cast_cas_fu_98_p3);
 
-assign val_V_new_v_cast_cas_fu_84_p3 = ((tmp_7_fu_72_p2[0:0] === 1'b1) ? 24'd349526 : 24'd349525);
+assign val_V_new_v_cast_cas_fu_98_p3 = ((tmp_7_reg_126[0:0] === 1'b1) ? 24'd349526 : 24'd349525);
 
 endmodule //triangle

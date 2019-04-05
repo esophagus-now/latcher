@@ -40,7 +40,7 @@ set ExportMCPathFlag "0"
 set SCTraceFileName "mytrace"
 set SCTraceFileFormat "vcd"
 set SCTraceOption "all"
-set TargetInfo "xc7vx485t:ffg1157:-1"
+set TargetInfo "xc7z100:ffg900:-1"
 set SourceFiles {sc {} c ../../triangle.cpp}
 set SourceFlags {sc {} c {{}}}
 set DirectiveFile {/workspace/triangle/triangle/solution1/solution1.directive}
@@ -52,7 +52,7 @@ set TBTops {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set TBInstNames {verilog {} bc {} vhdl {} sc {} cas {} c {}}
 set XDCFiles {}
 set ExtraGlobalOptions {"area_timing" 1 "clock_gate" 1 "impl_flow" map "power_gate" 0}
-set PlatformFiles {{DefaultPlatform {xilinx/virtex7/virtex7 xilinx/virtex7/virtex7_fpv6}}}
+set PlatformFiles {{DefaultPlatform {xilinx/zynq/zynq xilinx/zynq/zynq_fpv6}}}
 set DefaultPlatform "DefaultPlatform"
 set TBTVFileNotFound ""
 set AppFile "../vivado_hls.app"

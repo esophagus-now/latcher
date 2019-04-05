@@ -7,10 +7,10 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm_global_ctors_1 = appending global [1 x void ()*] [void ()* @_GLOBAL__I_a] ; [#uses=0 type=[1 x void ()*]*]
 @llvm_global_ctors_0 = appending global [1 x i32] [i32 65535] ; [#uses=0 type=[1 x i32]*]
 @err = internal unnamed_addr global i32 -48000, align 4 ; [#uses=2 type=i32*]
-@p_str3 = private unnamed_addr constant [5 x i8] c"both\00", align 1 ; [#uses=1 type=[5 x i8]*]
-@p_str2 = private unnamed_addr constant [5 x i8] c"axis\00", align 1 ; [#uses=1 type=[5 x i8]*]
-@p_str1 = private unnamed_addr constant [13 x i8] c"ap_ctrl_none\00", align 1 ; [#uses=1 type=[13 x i8]*]
-@p_str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=11 type=[1 x i8]*]
+@p_str3 = private unnamed_addr constant [13 x i8] c"ap_ctrl_none\00", align 1 ; [#uses=1 type=[13 x i8]*]
+@p_str2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1 ; [#uses=11 type=[1 x i8]*]
+@p_str1 = private unnamed_addr constant [5 x i8] c"both\00", align 1 ; [#uses=1 type=[5 x i8]*]
+@p_str = private unnamed_addr constant [5 x i8] c"axis\00", align 1 ; [#uses=1 type=[5 x i8]*]
 
 ; [#uses=0]
 define void @triangle(i32* %out_V) {
@@ -18,22 +18,22 @@ codeRepl_ifconv:
   call void (...)* @_ssdm_op_SpecBitsMap(i32* %out_V), !map !43
   call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @triangle_str) nounwind
   call void @llvm.dbg.value(metadata !{i32* %out_V}, i64 0, metadata !62), !dbg !146 ; [debug line = 23:25] [debug variable = out.V]
-  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind, !dbg !147 ; [debug line = 25:1]
-  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str2, i32 1, i32 1, [5 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
-  %val_V_load = load i24* @val_V, align 4, !dbg !149 ; [#uses=2 type=i24] [debug line = 1655:70@27:26]
-  %tmp = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %val_V_load, i8 0), !dbg !441 ; [#uses=1 type=i32] [debug line = 145:31@106:9@29:2]
-  call void @llvm.dbg.value(metadata !{i32 %tmp}, i64 0, metadata !448), !dbg !441 ; [debug line = 145:31@106:9@29:2] [debug variable = tmp]
+  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind, !dbg !147 ; [debug line = 27:1]
+  %val_V_load = load i24* @val_V, align 4, !dbg !149 ; [#uses=2 type=i24] [debug line = 1655:70@30:26]
+  %tmp = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %val_V_load, i8 0), !dbg !441 ; [#uses=1 type=i32] [debug line = 145:31@106:9@32:2]
+  call void @llvm.dbg.value(metadata !{i32 %tmp}, i64 0, metadata !448), !dbg !441 ; [debug line = 145:31@106:9@32:2] [debug variable = tmp]
   call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp)
-  %err_load = load i32* @err, align 4, !dbg !452  ; [#uses=2 type=i32] [debug line = 33:2]
-  %tmp_6 = add nsw i32 %err_load, 32000, !dbg !452 ; [#uses=2 type=i32] [debug line = 33:2]
-  %tmp_7 = icmp sgt i32 %tmp_6, 48000, !dbg !453  ; [#uses=2 type=i1] [debug line = 34:2]
-  %tmp_8 = add nsw i32 %err_load, -64000, !dbg !454 ; [#uses=1 type=i32] [debug line = 35:3]
+  %err_load = load i32* @err, align 4, !dbg !452  ; [#uses=2 type=i32] [debug line = 36:2]
+  %tmp_6 = add nsw i32 %err_load, 32000, !dbg !452 ; [#uses=2 type=i32] [debug line = 36:2]
+  %tmp_7 = icmp sgt i32 %tmp_6, 48000, !dbg !453  ; [#uses=2 type=i1] [debug line = 37:2]
+  %tmp_8 = add nsw i32 %err_load, -64000, !dbg !454 ; [#uses=1 type=i32] [debug line = 38:3]
   %val_V_new_v_cast_cas = select i1 %tmp_7, i24 349526, i24 349525 ; [#uses=1 type=i24]
   %val_V_new = add i24 %val_V_load, %val_V_new_v_cast_cas ; [#uses=1 type=i24]
   %err_new = select i1 %tmp_7, i32 %tmp_8, i32 %tmp_6 ; [#uses=1 type=i32]
-  store i32 %err_new, i32* @err, align 4, !dbg !452 ; [debug line = 33:2]
-  store i24 %val_V_new, i24* @val_V, align 4, !dbg !456 ; [debug line = 1824:147@3540:159@32:2]
-  ret void, !dbg !1009                            ; [debug line = 38:1]
+  store i32 %err_new, i32* @err, align 4, !dbg !452 ; [debug line = 36:2]
+  store i24 %val_V_new, i24* @val_V, align 4, !dbg !456 ; [debug line = 1824:147@3540:159@35:2]
+  ret void, !dbg !1009                            ; [debug line = 41:1]
 }
 
 ; [#uses=2]
@@ -228,7 +228,7 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !144 = metadata !{i32 786438, null, metadata !"", metadata !75, i32 7, i64 24, i64 32, i32 0, i32 0, null, metadata !145, i32 0, null, null} ; [ DW_TAG_class_field_type ]
 !145 = metadata !{metadata !79}
 !146 = metadata !{i32 23, i32 25, metadata !64, null}
-!147 = metadata !{i32 25, i32 1, metadata !148, null}
+!147 = metadata !{i32 27, i32 1, metadata !148, null}
 !148 = metadata !{i32 786443, metadata !64, i32 24, i32 3, metadata !65, i32 0} ; [ DW_TAG_lexical_block ]
 !149 = metadata !{i32 1655, i32 70, metadata !150, metadata !440}
 !150 = metadata !{i32 786443, metadata !151, i32 1655, i32 68, metadata !152, i32 12} ; [ DW_TAG_lexical_block ]
@@ -521,22 +521,22 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !437 = metadata !{i32 0}
 !438 = metadata !{metadata !439, metadata !175}
 !439 = metadata !{i32 786480, null, metadata !"_AP_N", metadata !80, i64 3, null, i32 0, i32 0} ; [ DW_TAG_template_value_parameter ]
-!440 = metadata !{i32 27, i32 26, metadata !148, null}
+!440 = metadata !{i32 30, i32 26, metadata !148, null}
 !441 = metadata !{i32 145, i32 31, metadata !442, metadata !444}
 !442 = metadata !{i32 786443, metadata !443, i32 144, i32 79, metadata !71, i32 11} ; [ DW_TAG_lexical_block ]
 !443 = metadata !{i32 786478, i32 0, metadata !70, metadata !"write", metadata !"write", metadata !"_ZN3hls6streamI13padded_sampleE5writeERKS1_", metadata !71, i32 144, metadata !106, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !123, metadata !85, i32 144} ; [ DW_TAG_subprogram ]
 !444 = metadata !{i32 106, i32 9, metadata !445, metadata !447}
 !445 = metadata !{i32 786443, metadata !446, i32 105, i32 88, metadata !71, i32 10} ; [ DW_TAG_lexical_block ]
 !446 = metadata !{i32 786478, i32 0, metadata !70, metadata !"operator<<", metadata !"operator<<", metadata !"_ZN3hls6streamI13padded_sampleElsERKS1_", metadata !71, i32 105, metadata !106, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, null, metadata !105, metadata !85, i32 105} ; [ DW_TAG_subprogram ]
-!447 = metadata !{i32 29, i32 2, metadata !148, null}
+!447 = metadata !{i32 32, i32 2, metadata !148, null}
 !448 = metadata !{i32 790536, metadata !449, metadata !"tmp", metadata !75, i32 145, metadata !144, i32 0, i32 0, metadata !450, metadata !451} ; [ DW_TAG_auto_variable_aggr_vec ]
 !449 = metadata !{i32 786688, metadata !442, metadata !"tmp", metadata !71, i32 145, metadata !74, i32 0, i32 0} ; [ DW_TAG_auto_variable ]
 !450 = metadata !{i32 790529, metadata !449, metadata !"tmp.padding", null, i32 145, metadata !138, i32 0, i32 0} ; [ DW_TAG_auto_variable_field ]
 !451 = metadata !{i32 790529, metadata !449, metadata !"tmp.data", null, i32 145, metadata !144, i32 0, i32 0} ; [ DW_TAG_auto_variable_field ]
-!452 = metadata !{i32 33, i32 2, metadata !148, null}
-!453 = metadata !{i32 34, i32 2, metadata !148, null}
-!454 = metadata !{i32 35, i32 3, metadata !455, null}
-!455 = metadata !{i32 786443, metadata !148, i32 34, i32 19, metadata !65, i32 1} ; [ DW_TAG_lexical_block ]
+!452 = metadata !{i32 36, i32 2, metadata !148, null}
+!453 = metadata !{i32 37, i32 2, metadata !148, null}
+!454 = metadata !{i32 38, i32 3, metadata !455, null}
+!455 = metadata !{i32 786443, metadata !148, i32 37, i32 19, metadata !65, i32 1} ; [ DW_TAG_lexical_block ]
 !456 = metadata !{i32 1824, i32 147, metadata !457, metadata !1002}
 !457 = metadata !{i32 786443, metadata !458, i32 1824, i32 143, metadata !152, i32 9} ; [ DW_TAG_lexical_block ]
 !458 = metadata !{i32 786478, i32 0, null, metadata !"operator+=<32, true>", metadata !"operator+=<32, true>", metadata !"_ZN11ap_int_baseILi24ELb1ELb1EEpLILi32ELb1EEERS0_RKS_IXT_EXT0_EXleT_Li64EEE", metadata !152, i32 1824, metadata !459, i1 false, i1 true, i32 0, i32 0, null, i32 256, i1 false, null, metadata !482, null, metadata !85, i32 1824} ; [ DW_TAG_subprogram ]
@@ -1089,5 +1089,5 @@ declare void @_GLOBAL__I_a() nounwind section ".text.startup"
 !1005 = metadata !{i32 786453, i32 0, metadata !"", i32 0, i32 0, i64 0, i64 0, i64 0, i32 0, null, metadata !1006, i32 0, i32 0} ; [ DW_TAG_subroutine_type ]
 !1006 = metadata !{metadata !270, metadata !270, metadata !80}
 !1007 = metadata !{metadata !433, metadata !175}
-!1008 = metadata !{i32 32, i32 2, metadata !148, null}
-!1009 = metadata !{i32 38, i32 1, metadata !148, null}
+!1008 = metadata !{i32 35, i32 2, metadata !148, null}
+!1009 = metadata !{i32 41, i32 1, metadata !148, null}

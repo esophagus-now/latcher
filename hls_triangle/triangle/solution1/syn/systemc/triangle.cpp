@@ -47,9 +47,9 @@ triangle::triangle(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_ap_rst_n_inv);
     sensitive << ( ap_rst_n );
 
-    SC_METHOD(thread_err_new_fu_98_p3);
-    sensitive << ( tmp_6_fu_66_p2 );
+    SC_METHOD(thread_err_new_fu_84_p3);
     sensitive << ( tmp_7_fu_72_p2 );
+    sensitive << ( tmp_6_fu_66_p2 );
     sensitive << ( tmp_8_fu_78_p2 );
 
     SC_METHOD(thread_out_V_1_ack_in);
@@ -109,12 +109,12 @@ triangle::triangle(sc_module_name name) : sc_module(name), mVcdFile(0) {
     SC_METHOD(thread_tmp_fu_53_p3);
     sensitive << ( val_V );
 
-    SC_METHOD(thread_val_V_new_fu_92_p2);
+    SC_METHOD(thread_val_V_new_fu_105_p2);
     sensitive << ( val_V );
-    sensitive << ( val_V_new_v_cast_cas_fu_84_p3 );
+    sensitive << ( val_V_new_v_cast_cas_fu_98_p3 );
 
-    SC_METHOD(thread_val_V_new_v_cast_cas_fu_84_p3);
-    sensitive << ( tmp_7_fu_72_p2 );
+    SC_METHOD(thread_val_V_new_v_cast_cas_fu_98_p3);
+    sensitive << ( tmp_7_reg_126 );
 
     SC_METHOD(thread_ap_NS_fsm);
     sensitive << ( out_V_1_ack_in );
@@ -168,12 +168,13 @@ triangle::triangle(sc_module_name name) : sc_module(name), mVcdFile(0) {
     sc_trace(mVcdFile, ap_CS_fsm_state1, "ap_CS_fsm_state1");
     sc_trace(mVcdFile, ap_CS_fsm_state2, "ap_CS_fsm_state2");
     sc_trace(mVcdFile, tmp_fu_53_p3, "tmp_fu_53_p3");
-    sc_trace(mVcdFile, val_V_new_fu_92_p2, "val_V_new_fu_92_p2");
-    sc_trace(mVcdFile, err_new_fu_98_p3, "err_new_fu_98_p3");
-    sc_trace(mVcdFile, tmp_6_fu_66_p2, "tmp_6_fu_66_p2");
     sc_trace(mVcdFile, tmp_7_fu_72_p2, "tmp_7_fu_72_p2");
-    sc_trace(mVcdFile, val_V_new_v_cast_cas_fu_84_p3, "val_V_new_v_cast_cas_fu_84_p3");
+    sc_trace(mVcdFile, tmp_7_reg_126, "tmp_7_reg_126");
+    sc_trace(mVcdFile, val_V_new_fu_105_p2, "val_V_new_fu_105_p2");
+    sc_trace(mVcdFile, err_new_fu_84_p3, "err_new_fu_84_p3");
+    sc_trace(mVcdFile, tmp_6_fu_66_p2, "tmp_6_fu_66_p2");
     sc_trace(mVcdFile, tmp_8_fu_78_p2, "tmp_8_fu_78_p2");
+    sc_trace(mVcdFile, val_V_new_v_cast_cas_fu_98_p3, "val_V_new_v_cast_cas_fu_98_p3");
     sc_trace(mVcdFile, ap_NS_fsm, "ap_NS_fsm");
 #endif
 
@@ -242,14 +243,17 @@ void triangle::thread_ap_clk_no_reset_() {
         }
     }
     if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state1.read()) && esl_seteq<1,1,1>(out_V_1_ack_in.read(), ap_const_logic_1))) {
-        err = err_new_fu_98_p3.read();
-        val_V = val_V_new_fu_92_p2.read();
+        err = err_new_fu_84_p3.read();
+        tmp_7_reg_126 = tmp_7_fu_72_p2.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, out_V_1_load_A.read())) {
         out_V_1_payload_A = tmp_fu_53_p3.read();
     }
     if (esl_seteq<1,1,1>(ap_const_logic_1, out_V_1_load_B.read())) {
         out_V_1_payload_B = tmp_fu_53_p3.read();
+    }
+    if ((esl_seteq<1,1,1>(ap_const_logic_1, ap_CS_fsm_state2.read()) && esl_seteq<1,1,1>(out_V_1_ack_in.read(), ap_const_logic_1))) {
+        val_V = val_V_new_fu_105_p2.read();
     }
 }
 
@@ -265,8 +269,8 @@ void triangle::thread_ap_rst_n_inv() {
     ap_rst_n_inv =  (sc_logic) (~ap_rst_n.read());
 }
 
-void triangle::thread_err_new_fu_98_p3() {
-    err_new_fu_98_p3 = (!tmp_7_fu_72_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_7_fu_72_p2.read()[0].to_bool())? tmp_8_fu_78_p2.read(): tmp_6_fu_66_p2.read());
+void triangle::thread_err_new_fu_84_p3() {
+    err_new_fu_84_p3 = (!tmp_7_fu_72_p2.read()[0].is_01())? sc_lv<32>(): ((tmp_7_fu_72_p2.read()[0].to_bool())? tmp_8_fu_78_p2.read(): tmp_6_fu_66_p2.read());
 }
 
 void triangle::thread_out_V_1_ack_in() {
@@ -347,12 +351,12 @@ void triangle::thread_tmp_fu_53_p3() {
     tmp_fu_53_p3 = esl_concat<24,8>(val_V.read(), ap_const_lv8_0);
 }
 
-void triangle::thread_val_V_new_fu_92_p2() {
-    val_V_new_fu_92_p2 = (!val_V.read().is_01() || !val_V_new_v_cast_cas_fu_84_p3.read().is_01())? sc_lv<24>(): (sc_biguint<24>(val_V.read()) + sc_biguint<24>(val_V_new_v_cast_cas_fu_84_p3.read()));
+void triangle::thread_val_V_new_fu_105_p2() {
+    val_V_new_fu_105_p2 = (!val_V.read().is_01() || !val_V_new_v_cast_cas_fu_98_p3.read().is_01())? sc_lv<24>(): (sc_biguint<24>(val_V.read()) + sc_biguint<24>(val_V_new_v_cast_cas_fu_98_p3.read()));
 }
 
-void triangle::thread_val_V_new_v_cast_cas_fu_84_p3() {
-    val_V_new_v_cast_cas_fu_84_p3 = (!tmp_7_fu_72_p2.read()[0].is_01())? sc_lv<24>(): ((tmp_7_fu_72_p2.read()[0].to_bool())? ap_const_lv24_55556: ap_const_lv24_55555);
+void triangle::thread_val_V_new_v_cast_cas_fu_98_p3() {
+    val_V_new_v_cast_cas_fu_98_p3 = (!tmp_7_reg_126.read()[0].is_01())? sc_lv<24>(): ((tmp_7_reg_126.read()[0].to_bool())? ap_const_lv24_55556: ap_const_lv24_55555);
 }
 
 void triangle::thread_ap_NS_fsm() {

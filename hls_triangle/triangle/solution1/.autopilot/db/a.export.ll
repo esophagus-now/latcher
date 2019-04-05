@@ -7,17 +7,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm_global_ctors_1 = appending global [1 x void ()*] [void ()* @_GLOBAL__I_a]
 @llvm_global_ctors_0 = appending global [1 x i32] [i32 65535]
 @err = internal unnamed_addr global i32 -48000, align 4
-@p_str3 = private unnamed_addr constant [5 x i8] c"both\00", align 1
-@p_str2 = private unnamed_addr constant [5 x i8] c"axis\00", align 1
-@p_str1 = private unnamed_addr constant [13 x i8] c"ap_ctrl_none\00", align 1
-@p_str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@p_str3 = private unnamed_addr constant [13 x i8] c"ap_ctrl_none\00", align 1
+@p_str2 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
+@p_str1 = private unnamed_addr constant [5 x i8] c"both\00", align 1
+@p_str = private unnamed_addr constant [5 x i8] c"axis\00", align 1
 
 define void @triangle(i32* %out_V) {
 codeRepl_ifconv:
   call void (...)* @_ssdm_op_SpecBitsMap(i32* %out_V), !map !43
   call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @triangle_str) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
-  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str2, i32 1, i32 1, [5 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
+  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
   %val_V_load = load i24* @val_V, align 4
   %tmp = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %val_V_load, i8 0)
   call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp)

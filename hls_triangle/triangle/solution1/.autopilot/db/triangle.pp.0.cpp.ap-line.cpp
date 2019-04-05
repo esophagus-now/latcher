@@ -40330,6 +40330,9 @@ using namespace hls;
 void triangle(
  stream<padded_sample> &out
 ) {
+#pragma HLS INTERFACE axis register both port=out
+#pragma HLS DATA_PACK variable=out
+#pragma HLS INTERFACE ap_ctrl_none port=return
  static ap_int<24> val = 0;
 #pragma empty_line
  padded_sample tmp = {0, val};

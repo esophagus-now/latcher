@@ -3,13 +3,13 @@
 ================================================================
 == Vivado HLS Report for 'triangle'
 ================================================================
-* Date:           Thu Apr  4 22:26:53 2019
+* Date:           Fri Apr  5 17:32:16 2019
 
 * Version:        2017.2 (Build 1909853 on Thu Jun 15 18:55:24 MDT 2017)
 * Project:        triangle
 * Solution:       solution1
-* Product family: virtex7
-* Target device:  xc7vx485tffg1157-1
+* Product family: zynq
+* Target device:  xc7z100ffg900-1
 
 
 ================================================================
@@ -20,7 +20,7 @@
     +--------+-------+----------+------------+
     |  Clock | Target| Estimated| Uncertainty|
     +--------+-------+----------+------------+
-    |ap_clk  |  10.00|      5.51|        1.25|
+    |ap_clk  |  10.00|      8.23|        1.25|
     +--------+-------+----------+------------+
 
 + Latency (clock cycles): 
@@ -54,11 +54,11 @@
 |Instance         |        -|      -|       -|       -|
 |Memory           |        -|      -|       -|       -|
 |Multiplexer      |        -|      -|       -|      48|
-|Register         |        -|      -|     126|       -|
+|Register         |        -|      -|     127|       -|
 +-----------------+---------+-------+--------+--------+
-|Total            |        0|      0|     405|     223|
+|Total            |        0|      0|     406|     223|
 +-----------------+---------+-------+--------+--------+
-|Available        |     2060|   2800|  607200|  303600|
+|Available        |     1510|   2020|  554800|  277400|
 +-----------------+---------+-------+--------+--------+
 |Utilization (%)  |        0|      0|   ~0   |   ~0   |
 +-----------------+---------+-------+--------+--------+
@@ -82,13 +82,13 @@
     +-------------------------------+----------+-------+-----+----+------------+------------+
     |tmp_6_fu_66_p2                 |     +    |      0|  101|  37|          32|          15|
     |tmp_8_fu_78_p2                 |     +    |      0|  101|  37|          32|          17|
-    |val_V_new_fu_92_p2             |     +    |      0|   77|  29|          24|          24|
+    |val_V_new_fu_105_p2            |     +    |      0|   77|  29|          24|          24|
     |out_V_1_load_A                 |    and   |      0|    0|   2|           1|           1|
     |out_V_1_load_B                 |    and   |      0|    0|   2|           1|           1|
     |out_V_1_state_cmp_full         |   icmp   |      0|    0|   1|           2|           1|
     |tmp_7_fu_72_p2                 |   icmp   |      0|    0|  16|          32|          16|
-    |err_new_fu_98_p3               |  select  |      0|    0|  32|           1|          32|
-    |val_V_new_v_cast_cas_fu_84_p3  |  select  |      0|    0|  19|           1|          19|
+    |err_new_fu_84_p3               |  select  |      0|    0|  32|           1|          32|
+    |val_V_new_v_cast_cas_fu_98_p3  |  select  |      0|    0|  19|           1|          19|
     +-------------------------------+----------+-------+-----+----+------------+------------+
     |Total                          |          |      0|  279| 175|         126|         126|
     +-------------------------------+----------+-------+-----+----+------------+------------+
@@ -116,9 +116,10 @@
     |out_V_1_sel_rd     |   1|   0|    1|          0|
     |out_V_1_sel_wr     |   1|   0|    1|          0|
     |out_V_1_state      |   2|   0|    2|          0|
+    |tmp_7_reg_126      |   1|   0|    1|          0|
     |val_V              |  24|   0|   24|          0|
     +-------------------+----+----+-----+-----------+
-    |Total              | 126|   0|  126|          0|
+    |Total              | 127|   0|  127|          0|
     +-------------------+----+----+-----+-----------+
 
 
@@ -173,61 +174,61 @@ IsGatedGlobalClock: 0
 2 --> 
 * FSM state operations: 
 
- <State 1>: 5.51ns
-ST_1: val_V_load (8)  [1/1] 0.00ns  loc: triangle.cpp:27
+ <State 1>: 8.23ns
+ST_1: val_V_load (8)  [1/1] 0.00ns  loc: triangle.cpp:30
 codeRepl_ifconv:4  %val_V_load = load i24* @val_V, align 4
 
-ST_1: tmp (9)  [1/1] 0.00ns  loc: triangle.cpp:29
+ST_1: tmp (9)  [1/1] 0.00ns  loc: triangle.cpp:32
 codeRepl_ifconv:5  %tmp = call i32 @_ssdm_op_BitConcatenate.i32.i24.i8(i24 %val_V_load, i8 0)
 
-ST_1: StgValue_5 (10)  [2/2] 0.00ns  loc: triangle.cpp:29
+ST_1: StgValue_5 (10)  [2/2] 0.00ns  loc: triangle.cpp:32
 codeRepl_ifconv:6  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp)
 
-ST_1: err_load (11)  [1/1] 0.00ns  loc: triangle.cpp:33
+ST_1: err_load (11)  [1/1] 0.00ns  loc: triangle.cpp:36
 codeRepl_ifconv:7  %err_load = load i32* @err, align 4
 
-ST_1: tmp_6 (12)  [1/1] 1.73ns  loc: triangle.cpp:33
+ST_1: tmp_6 (12)  [1/1] 2.90ns  loc: triangle.cpp:36
 codeRepl_ifconv:8  %tmp_6 = add nsw i32 %err_load, 32000
 
-ST_1: tmp_7 (13)  [1/1] 2.08ns  loc: triangle.cpp:34
+ST_1: tmp_7 (13)  [1/1] 3.26ns  loc: triangle.cpp:37
 codeRepl_ifconv:9  %tmp_7 = icmp sgt i32 %tmp_6, 48000
 
-ST_1: tmp_8 (14)  [1/1] 1.73ns  loc: triangle.cpp:35
+ST_1: tmp_8 (14)  [1/1] 2.90ns  loc: triangle.cpp:38
 codeRepl_ifconv:10  %tmp_8 = add nsw i32 %err_load, -64000
 
-ST_1: val_V_new_v_cast_cas (15)  [1/1] 0.00ns  loc: triangle.cpp:34 (grouped into LUT with out node val_V_new)
-codeRepl_ifconv:11  %val_V_new_v_cast_cas = select i1 %tmp_7, i24 349526, i24 349525
-
-ST_1: val_V_new (16)  [1/1] 1.70ns  loc: triangle.cpp:27 (out node of the LUT)
-codeRepl_ifconv:12  %val_V_new = add i24 %val_V_load, %val_V_new_v_cast_cas
-
-ST_1: err_new (17)  [1/1] 1.40ns  loc: triangle.cpp:34
+ST_1: err_new (17)  [1/1] 2.07ns  loc: triangle.cpp:37
 codeRepl_ifconv:13  %err_new = select i1 %tmp_7, i32 %tmp_8, i32 %tmp_6
 
-ST_1: StgValue_13 (18)  [1/1] 0.00ns  loc: triangle.cpp:33
+ST_1: StgValue_11 (18)  [1/1] 0.00ns  loc: triangle.cpp:36
 codeRepl_ifconv:14  store i32 %err_new, i32* @err, align 4
 
-ST_1: StgValue_14 (19)  [1/1] 0.00ns  loc: triangle.cpp:32
-codeRepl_ifconv:15  store i24 %val_V_new, i24* @val_V, align 4
 
-
- <State 2>: 0.00ns
-ST_2: StgValue_15 (4)  [1/1] 0.00ns
+ <State 2>: 2.60ns
+ST_2: StgValue_12 (4)  [1/1] 0.00ns
 codeRepl_ifconv:0  call void (...)* @_ssdm_op_SpecBitsMap(i32* %out_V), !map !43
 
-ST_2: StgValue_16 (5)  [1/1] 0.00ns
+ST_2: StgValue_13 (5)  [1/1] 0.00ns
 codeRepl_ifconv:1  call void (...)* @_ssdm_op_SpecTopModule([9 x i8]* @triangle_str) nounwind
 
-ST_2: StgValue_17 (6)  [1/1] 0.00ns  loc: triangle.cpp:25
-codeRepl_ifconv:2  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+ST_2: StgValue_14 (6)  [1/1] 0.00ns
+codeRepl_ifconv:2  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
 
-ST_2: StgValue_18 (7)  [1/1] 0.00ns
-codeRepl_ifconv:3  call void (...)* @_ssdm_op_SpecInterface(i32* %out_V, [5 x i8]* @p_str2, i32 1, i32 1, [5 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str) nounwind
+ST_2: StgValue_15 (7)  [1/1] 0.00ns  loc: triangle.cpp:27
+codeRepl_ifconv:3  call void (...)* @_ssdm_op_SpecInterface(i32 0, [13 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind
 
-ST_2: StgValue_19 (10)  [1/2] 0.00ns  loc: triangle.cpp:29
+ST_2: StgValue_16 (10)  [1/2] 0.00ns  loc: triangle.cpp:32
 codeRepl_ifconv:6  call void @_ssdm_op_Write.axis.volatile.i32P(i32* %out_V, i32 %tmp)
 
-ST_2: StgValue_20 (20)  [1/1] 0.00ns  loc: triangle.cpp:38
+ST_2: val_V_new_v_cast_cas (15)  [1/1] 0.00ns  loc: triangle.cpp:37 (grouped into LUT with out node val_V_new)
+codeRepl_ifconv:11  %val_V_new_v_cast_cas = select i1 %tmp_7, i24 349526, i24 349525
+
+ST_2: val_V_new (16)  [1/1] 2.60ns  loc: triangle.cpp:30 (out node of the LUT)
+codeRepl_ifconv:12  %val_V_new = add i24 %val_V_load, %val_V_new_v_cast_cas
+
+ST_2: StgValue_19 (19)  [1/1] 0.00ns  loc: triangle.cpp:35
+codeRepl_ifconv:15  store i24 %val_V_new, i24* @val_V, align 4
+
+ST_2: StgValue_20 (20)  [1/1] 0.00ns  loc: triangle.cpp:41
 codeRepl_ifconv:16  ret void
 
 
@@ -252,22 +253,22 @@ Port [ err]:  wired=0; compound=0; hidden=1; nouse=0; global=1; static=1; extern
 
 <LifeTime>
 <method=bitvector/>
-val_V_load           (load          ) [ 000]
+val_V_load           (load          ) [ 001]
 tmp                  (bitconcatenate) [ 001]
 err_load             (load          ) [ 000]
 tmp_6                (add           ) [ 000]
-tmp_7                (icmp          ) [ 000]
+tmp_7                (icmp          ) [ 001]
 tmp_8                (add           ) [ 000]
+err_new              (select        ) [ 000]
+StgValue_11          (store         ) [ 000]
+StgValue_12          (specbitsmap   ) [ 000]
+StgValue_13          (spectopmodule ) [ 000]
+StgValue_14          (specinterface ) [ 000]
+StgValue_15          (specinterface ) [ 000]
+StgValue_16          (write         ) [ 000]
 val_V_new_v_cast_cas (select        ) [ 000]
 val_V_new            (add           ) [ 000]
-err_new              (select        ) [ 000]
-StgValue_13          (store         ) [ 000]
-StgValue_14          (store         ) [ 000]
-StgValue_15          (specbitsmap   ) [ 000]
-StgValue_16          (spectopmodule ) [ 000]
-StgValue_17          (specinterface ) [ 000]
-StgValue_18          (specinterface ) [ 000]
-StgValue_19          (write         ) [ 000]
+StgValue_19          (store         ) [ 000]
 StgValue_20          (ret           ) [ 000]
 </LifeTime>
 
@@ -357,19 +358,19 @@ StgValue_20          (ret           ) [ 000]
 
 <comp id="18" class="1001" name="const_18">
 <pin_list>
-<pin id="19" dir="1" index="0" bw="1" slack="0"/>
+<pin id="19" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
 </bind>
 </comp>
 
 <comp id="20" class="1001" name="const_20">
 <pin_list>
-<pin id="21" dir="1" index="0" bw="1" slack="0"/>
+<pin id="21" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
 </bind>
 </comp>
 
@@ -378,7 +379,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="23" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecBitsMap"/></StgValue>
+<StgValue><ssdm name="triangle_str"/></StgValue>
 </bind>
 </comp>
 
@@ -387,7 +388,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="25" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecTopModule"/></StgValue>
+<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
 </bind>
 </comp>
 
@@ -396,7 +397,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="27" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="triangle_str"/></StgValue>
+<StgValue><ssdm name="p_str"/></StgValue>
 </bind>
 </comp>
 
@@ -405,7 +406,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="29" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="_ssdm_op_SpecInterface"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -414,7 +415,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="31" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name=""/></StgValue>
+<StgValue><ssdm name="p_str1"/></StgValue>
 </bind>
 </comp>
 
@@ -423,7 +424,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="33" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str1"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -432,7 +433,7 @@ StgValue_20          (ret           ) [ 000]
 <pin id="35" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str"/></StgValue>
+<StgValue><ssdm name="p_str2"/></StgValue>
 </bind>
 </comp>
 
@@ -441,13 +442,13 @@ StgValue_20          (ret           ) [ 000]
 <pin id="37" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str2"/></StgValue>
+<StgValue><ssdm name="p_str3"/></StgValue>
 </bind>
 </comp>
 
 <comp id="38" class="1001" name="const_38">
 <pin_list>
-<pin id="39" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="39" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
 <StgValue><ssdm name=""/></StgValue>
@@ -456,10 +457,10 @@ StgValue_20          (ret           ) [ 000]
 
 <comp id="40" class="1001" name="const_40">
 <pin_list>
-<pin id="41" dir="1" index="0" bw="1" slack="2147483647"/>
+<pin id="41" dir="1" index="0" bw="1" slack="0"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="p_str3"/></StgValue>
+<StgValue><ssdm name=""/></StgValue>
 </bind>
 </comp>
 
@@ -547,37 +548,12 @@ StgValue_20          (ret           ) [ 000]
 </bind>
 </comp>
 
-<comp id="84" class="1004" name="val_V_new_v_cast_cas_fu_84">
+<comp id="84" class="1004" name="err_new_fu_84">
 <pin_list>
 <pin id="85" dir="0" index="0" bw="1" slack="0"/>
-<pin id="86" dir="0" index="1" bw="24" slack="0"/>
-<pin id="87" dir="0" index="2" bw="24" slack="0"/>
-<pin id="88" dir="1" index="3" bw="24" slack="0"/>
-</pin_list>
-<bind>
-<opcode="select(49) " fcode="select"/>
-<opset="val_V_new_v_cast_cas/1 "/>
-</bind>
-</comp>
-
-<comp id="92" class="1004" name="val_V_new_fu_92">
-<pin_list>
-<pin id="93" dir="0" index="0" bw="24" slack="0"/>
-<pin id="94" dir="0" index="1" bw="20" slack="0"/>
-<pin id="95" dir="1" index="2" bw="24" slack="0"/>
-</pin_list>
-<bind>
-<opcode="add(8) " fcode="add"/>
-<opset="val_V_new/1 "/>
-</bind>
-</comp>
-
-<comp id="98" class="1004" name="err_new_fu_98">
-<pin_list>
-<pin id="99" dir="0" index="0" bw="1" slack="0"/>
-<pin id="100" dir="0" index="1" bw="32" slack="0"/>
-<pin id="101" dir="0" index="2" bw="32" slack="0"/>
-<pin id="102" dir="1" index="3" bw="32" slack="0"/>
+<pin id="86" dir="0" index="1" bw="32" slack="0"/>
+<pin id="87" dir="0" index="2" bw="32" slack="0"/>
+<pin id="88" dir="1" index="3" bw="32" slack="0"/>
 </pin_list>
 <bind>
 <opcode="select(49) " fcode="select"/>
@@ -585,37 +561,82 @@ StgValue_20          (ret           ) [ 000]
 </bind>
 </comp>
 
-<comp id="106" class="1004" name="StgValue_13_store_fu_106">
+<comp id="92" class="1004" name="StgValue_11_store_fu_92">
 <pin_list>
-<pin id="107" dir="0" index="0" bw="32" slack="0"/>
-<pin id="108" dir="0" index="1" bw="32" slack="0"/>
-<pin id="109" dir="1" index="2" bw="0" slack="2147483647"/>
+<pin id="93" dir="0" index="0" bw="32" slack="0"/>
+<pin id="94" dir="0" index="1" bw="32" slack="0"/>
+<pin id="95" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_13/1 "/>
+<opset="StgValue_11/1 "/>
 </bind>
 </comp>
 
-<comp id="112" class="1004" name="StgValue_14_store_fu_112">
+<comp id="98" class="1004" name="val_V_new_v_cast_cas_fu_98">
 <pin_list>
-<pin id="113" dir="0" index="0" bw="24" slack="0"/>
-<pin id="114" dir="0" index="1" bw="24" slack="0"/>
-<pin id="115" dir="1" index="2" bw="0" slack="2147483647"/>
+<pin id="99" dir="0" index="0" bw="1" slack="1"/>
+<pin id="100" dir="0" index="1" bw="24" slack="0"/>
+<pin id="101" dir="0" index="2" bw="24" slack="0"/>
+<pin id="102" dir="1" index="3" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="select(49) " fcode="select"/>
+<opset="val_V_new_v_cast_cas/2 "/>
+</bind>
+</comp>
+
+<comp id="105" class="1004" name="val_V_new_fu_105">
+<pin_list>
+<pin id="106" dir="0" index="0" bw="24" slack="1"/>
+<pin id="107" dir="0" index="1" bw="20" slack="0"/>
+<pin id="108" dir="1" index="2" bw="24" slack="0"/>
+</pin_list>
+<bind>
+<opcode="add(8) " fcode="add"/>
+<opset="val_V_new/2 "/>
+</bind>
+</comp>
+
+<comp id="110" class="1004" name="StgValue_19_store_fu_110">
+<pin_list>
+<pin id="111" dir="0" index="0" bw="24" slack="0"/>
+<pin id="112" dir="0" index="1" bw="24" slack="0"/>
+<pin id="113" dir="1" index="2" bw="0" slack="2147483647"/>
 </pin_list>
 <bind>
 <opcode="store(28) " fcode="store"/>
-<opset="StgValue_14/1 "/>
+<opset="StgValue_19/2 "/>
 </bind>
 </comp>
 
-<comp id="118" class="1005" name="tmp_reg_118">
+<comp id="116" class="1005" name="val_V_load_reg_116">
 <pin_list>
-<pin id="119" dir="0" index="0" bw="32" slack="1"/>
-<pin id="120" dir="1" index="1" bw="32" slack="1"/>
+<pin id="117" dir="0" index="0" bw="24" slack="1"/>
+<pin id="118" dir="1" index="1" bw="24" slack="1"/>
+</pin_list>
+<bind>
+<opset="val_V_load "/>
+</bind>
+</comp>
+
+<comp id="121" class="1005" name="tmp_reg_121">
+<pin_list>
+<pin id="122" dir="0" index="0" bw="32" slack="1"/>
+<pin id="123" dir="1" index="1" bw="32" slack="1"/>
 </pin_list>
 <bind>
 <opset="tmp "/>
+</bind>
+</comp>
+
+<comp id="126" class="1005" name="tmp_7_reg_126">
+<pin_list>
+<pin id="127" dir="0" index="0" bw="1" slack="1"/>
+<pin id="128" dir="1" index="1" bw="1" slack="1"/>
+</pin_list>
+<bind>
+<opset="tmp_7 "/>
 </bind>
 </comp>
 
@@ -652,31 +673,35 @@ StgValue_20          (ret           ) [ 000]
 
 <net id="89"><net_src comp="72" pin="2"/><net_sink comp="84" pin=0"/></net>
 
-<net id="90"><net_src comp="18" pin="0"/><net_sink comp="84" pin=1"/></net>
+<net id="90"><net_src comp="78" pin="2"/><net_sink comp="84" pin=1"/></net>
 
-<net id="91"><net_src comp="20" pin="0"/><net_sink comp="84" pin=2"/></net>
+<net id="91"><net_src comp="66" pin="2"/><net_sink comp="84" pin=2"/></net>
 
-<net id="96"><net_src comp="49" pin="1"/><net_sink comp="92" pin=0"/></net>
+<net id="96"><net_src comp="84" pin="3"/><net_sink comp="92" pin=0"/></net>
 
-<net id="97"><net_src comp="84" pin="3"/><net_sink comp="92" pin=1"/></net>
+<net id="97"><net_src comp="4" pin="0"/><net_sink comp="92" pin=1"/></net>
 
-<net id="103"><net_src comp="72" pin="2"/><net_sink comp="98" pin=0"/></net>
+<net id="103"><net_src comp="38" pin="0"/><net_sink comp="98" pin=1"/></net>
 
-<net id="104"><net_src comp="78" pin="2"/><net_sink comp="98" pin=1"/></net>
+<net id="104"><net_src comp="40" pin="0"/><net_sink comp="98" pin=2"/></net>
 
-<net id="105"><net_src comp="66" pin="2"/><net_sink comp="98" pin=2"/></net>
+<net id="109"><net_src comp="98" pin="3"/><net_sink comp="105" pin=1"/></net>
 
-<net id="110"><net_src comp="98" pin="3"/><net_sink comp="106" pin=0"/></net>
+<net id="114"><net_src comp="105" pin="2"/><net_sink comp="110" pin=0"/></net>
 
-<net id="111"><net_src comp="4" pin="0"/><net_sink comp="106" pin=1"/></net>
+<net id="115"><net_src comp="2" pin="0"/><net_sink comp="110" pin=1"/></net>
 
-<net id="116"><net_src comp="92" pin="2"/><net_sink comp="112" pin=0"/></net>
+<net id="119"><net_src comp="49" pin="1"/><net_sink comp="116" pin=0"/></net>
 
-<net id="117"><net_src comp="2" pin="0"/><net_sink comp="112" pin=1"/></net>
+<net id="120"><net_src comp="116" pin="1"/><net_sink comp="105" pin=0"/></net>
 
-<net id="121"><net_src comp="53" pin="3"/><net_sink comp="118" pin=0"/></net>
+<net id="124"><net_src comp="53" pin="3"/><net_sink comp="121" pin=0"/></net>
 
-<net id="122"><net_src comp="118" pin="1"/><net_sink comp="42" pin=2"/></net>
+<net id="125"><net_src comp="121" pin="1"/><net_sink comp="42" pin=2"/></net>
+
+<net id="129"><net_src comp="72" pin="2"/><net_sink comp="126" pin=0"/></net>
+
+<net id="130"><net_src comp="126" pin="1"/><net_sink comp="98" pin=0"/></net>
 
 </net_list>
 
@@ -686,7 +711,7 @@ StgValue_20          (ret           ) [ 000]
 * FSMD analyzer results:
   - Output states:
 	Port: out_V | {2 }
-	Port: val_V | {1 }
+	Port: val_V | {2 }
 	Port: err | {1 }
  - Input state : 
 	Port: triangle : val_V | {1 }
@@ -698,12 +723,11 @@ StgValue_20          (ret           ) [ 000]
 		tmp_6 : 1
 		tmp_7 : 2
 		tmp_8 : 1
-		val_V_new_v_cast_cas : 3
-		val_V_new : 4
 		err_new : 3
-		StgValue_13 : 4
-		StgValue_14 : 5
+		StgValue_11 : 4
 	State 2
+		val_V_new : 1
+		StgValue_19 : 2
 
 
 ============================================================
@@ -716,10 +740,10 @@ StgValue_20          (ret           ) [ 000]
 |----------|----------------------------|---------|---------|
 |          |         tmp_6_fu_66        |   101   |    37   |
 |    add   |         tmp_8_fu_78        |   101   |    37   |
-|          |       val_V_new_fu_92      |    77   |    29   |
+|          |      val_V_new_fu_105      |    77   |    29   |
 |----------|----------------------------|---------|---------|
-|  select  | val_V_new_v_cast_cas_fu_84 |    0    |    24   |
-|          |        err_new_fu_98       |    0    |    32   |
+|  select  |        err_new_fu_84       |    0    |    32   |
+|          | val_V_new_v_cast_cas_fu_98 |    0    |    24   |
 |----------|----------------------------|---------|---------|
 |   icmp   |         tmp_7_fu_72        |    0    |    16   |
 |----------|----------------------------|---------|---------|
@@ -734,13 +758,15 @@ Memories:
 N/A
 
 * Register list:
-+-----------+--------+
-|           |   FF   |
-+-----------+--------+
-|tmp_reg_118|   32   |
-+-----------+--------+
-|   Total   |   32   |
-+-----------+--------+
++------------------+--------+
+|                  |   FF   |
++------------------+--------+
+|   tmp_7_reg_126  |    1   |
+|    tmp_reg_121   |   32   |
+|val_V_load_reg_116|   24   |
++------------------+--------+
+|       Total      |   57   |
++------------------+--------+
 
 * Multiplexer (MUX) list: 
 |-----------------|------|------|------|--------||---------||---------|
@@ -748,7 +774,7 @@ N/A
 |-----------------|------|------|------|--------||---------||---------|
 | grp_write_fu_42 |  p2  |   2  |  32  |   64   ||    9    |
 |-----------------|------|------|------|--------||---------||---------|
-|      Total      |      |      |      |   64   ||  1.038  ||    9    |
+|      Total      |      |      |      |   64   ||  1.588  ||    9    |
 |-----------------|------|------|------|--------||---------||---------|
 
 
@@ -760,7 +786,7 @@ N/A
 |  Function |    -   |   279  |   175  |
 |   Memory  |    -   |    -   |    -   |
 |Multiplexer|    1   |    -   |    9   |
-|  Register |    -   |   32   |    -   |
+|  Register |    -   |   57   |    -   |
 +-----------+--------+--------+--------+
-|   Total   |    1   |   311  |   184  |
+|   Total   |    1   |   336  |   184  |
 +-----------+--------+--------+--------+

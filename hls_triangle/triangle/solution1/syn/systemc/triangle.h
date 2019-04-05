@@ -55,12 +55,13 @@ struct triangle : public sc_module {
     sc_signal< sc_logic > ap_CS_fsm_state1;
     sc_signal< sc_logic > ap_CS_fsm_state2;
     sc_signal< sc_lv<32> > tmp_fu_53_p3;
-    sc_signal< sc_lv<24> > val_V_new_fu_92_p2;
-    sc_signal< sc_lv<32> > err_new_fu_98_p3;
-    sc_signal< sc_lv<32> > tmp_6_fu_66_p2;
     sc_signal< sc_lv<1> > tmp_7_fu_72_p2;
-    sc_signal< sc_lv<24> > val_V_new_v_cast_cas_fu_84_p3;
+    sc_signal< sc_lv<1> > tmp_7_reg_126;
+    sc_signal< sc_lv<24> > val_V_new_fu_105_p2;
+    sc_signal< sc_lv<32> > err_new_fu_84_p3;
+    sc_signal< sc_lv<32> > tmp_6_fu_66_p2;
     sc_signal< sc_lv<32> > tmp_8_fu_78_p2;
+    sc_signal< sc_lv<24> > val_V_new_v_cast_cas_fu_98_p3;
     sc_signal< sc_lv<2> > ap_NS_fsm;
     static const sc_logic ap_const_logic_1;
     static const sc_logic ap_const_logic_0;
@@ -86,7 +87,7 @@ struct triangle : public sc_module {
     void thread_ap_CS_fsm_state1();
     void thread_ap_CS_fsm_state2();
     void thread_ap_rst_n_inv();
-    void thread_err_new_fu_98_p3();
+    void thread_err_new_fu_84_p3();
     void thread_out_V_1_ack_in();
     void thread_out_V_1_ack_out();
     void thread_out_V_1_data_out();
@@ -103,8 +104,8 @@ struct triangle : public sc_module {
     void thread_tmp_7_fu_72_p2();
     void thread_tmp_8_fu_78_p2();
     void thread_tmp_fu_53_p3();
-    void thread_val_V_new_fu_92_p2();
-    void thread_val_V_new_v_cast_cas_fu_84_p3();
+    void thread_val_V_new_fu_105_p2();
+    void thread_val_V_new_v_cast_cas_fu_98_p3();
     void thread_ap_NS_fsm();
     void thread_hdltv_gen();
 };

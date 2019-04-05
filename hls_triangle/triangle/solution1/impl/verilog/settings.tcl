@@ -10,9 +10,9 @@
 #
 set top_module triangle
 set language verilog
-set family virtex7
-set device xc7vx485t
-set package ffg1157
+set family zynq
+set device xc7z100
+set package ffg900
 set speed -1
 set clock ap_clk
 set fsm_ext "off"
